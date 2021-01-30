@@ -17,6 +17,8 @@ class ChatConsumer(AsyncJsonWebsocketConsumer):
     """
 
     ##### WebSocket event handlers
+    def __init__(self):
+        super(ChatConsumer, self).__init__()
 
     async def connect(self):
         """

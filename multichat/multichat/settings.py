@@ -34,7 +34,9 @@ CHANNEL_LAYERS = {
 
 # ASGI_APPLICATION should be set to your outermost router
 ASGI_APPLICATION = 'multichat.routing.application'
-
+CORS_ALLOWED_ORIGINS = (
+    'http://localhost:3000',
+)
 
 ##### Project-specific settings
 
@@ -69,7 +71,7 @@ MESSAGE_TYPES_LIST = [
 ##### Normal Django settings
 
 # SECURITY WARNING: keep the secret key used in production secret! And don't use debug=True in production!
-SECRET_KEY = 'imasecret'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 ALLOWED_HOSTS = []
 
@@ -83,9 +85,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'channels',
     'chat',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -135,7 +139,10 @@ DATABASES = {
 # Deliberately turned off for this example.
 AUTH_PASSWORD_VALIDATORS = []
 
-LOGIN_REDIRECT_URL = "/"
+# LOGIN_REDIRECT_URL = "/"
+
+# redirecting for react for now
+LOGIN_REDIRECT_URL = "http://localhost:3000/"
 
 
 # Internationalization

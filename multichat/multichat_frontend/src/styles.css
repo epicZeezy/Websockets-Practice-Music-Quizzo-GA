@@ -1,0 +1,44 @@
+.ChatWindow{
+    height: 500px;
+    position: absolute;
+    right:60px;
+}
+
+.messages{
+        height: 400px;
+        width: 500px;
+        overflow: auto;
+        background: #eee;
+        margin: 2px 0 5px 0;
+        margin-down: -200px;
+    }
+
+.SendMessageForm {
+    margin-top: 20px;
+}
+
+#submit-answer{
+    position: relative;
+    margin-top: -50px;
+    margin-right: -800px;
+}
+
+#message-send {
+    width: 670px;
+    position: absolute;
+    right: 0;
+}
+
+#message-input {
+    width: 670px;
+    right:150px;
+}
+
+.RoomLinkImage{
+    height: 200px;
+    display: inline-block; margin-right: 10px;
+}
+
+#score {
+    margin-left: -700px;
+}

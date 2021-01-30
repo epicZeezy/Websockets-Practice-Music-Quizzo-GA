@@ -10,5 +10,12 @@ services:
       - .:/code
     ports:
       - "8000:8000"
+    env_file:
+      - ./.env.dev
     links:
       - redis
+  frontend:
+    build: ./multichat_frontend
+    command: npm start
+    ports:
+      - "3000:3000"
